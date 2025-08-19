@@ -1,0 +1,10 @@
+import os
+
+def read_data(path):
+    if not os.path.exists(path):
+        raise FileNotFoundError
+    with open(path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            line = line.split()
+            yield line
