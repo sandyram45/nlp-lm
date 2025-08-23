@@ -12,8 +12,8 @@ class WikiTextDataset(Dataset):
         assert self.tokens is not None
 
     def __getitem__(self, idx):
-        x = torch.tensor(self.tokens[idx : idx + self.block_size], dtype=torch.long)
-        y = torch.tensor(self.tokens[idx + 1 : idx + self.block_size + 1], dtype=torch.long)
+        x = torch.tensor(self.tokens[idx : idx + self.context_len], dtype=torch.long)
+        y = torch.tensor(self.tokens[idx + 1 : idx + self.context_len + 1], dtype=torch.long)
         return x,y
 
     def __len__(self):
