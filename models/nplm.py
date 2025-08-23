@@ -11,12 +11,12 @@ class NPLM(nn.Module):
     final_output = softmax(W_x x + b2)
     '''
 
-    def __init__(self, vocab_size, seq_len, embed_size, hidden_size):
+    def __init__(self, mconfig):
         super().__init__()
-        self.vocab_size = vocab_size
-        self.seq_len = seq_len
-        self.embed_size = embed_size
-        self.hidden_size = hidden_size
+        self.vocab_size = mconfig.vocab_size
+        self.seq_len = mconfig.seq_len
+        self.embed_size = mconfig.embed_size
+        self.hidden_size = mconfig.hidden_size
 
         self.embedding = nn.Embedding(self.vocab_size, self.embed_size)
         self.h = nn.Linear(self.seq_len * self.embed_size, self.hidden_size)

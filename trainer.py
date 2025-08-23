@@ -1,6 +1,7 @@
 import torch 
 import torch.nn as nn
-
+import torch.optim as optim
+import torch.utils.dataloader as Dataloader
 
 class TrainerConfig:
     max_epochs = 10
@@ -24,4 +25,9 @@ class Trainer:
         pass
         
     def train(self):
-        pass
+        config = self.config
+        model = self.model
+        optimizer = torch.optim.SGD(model.parameters(), lr=config.lr)
+
+        def run_epoch(is_train):
+            pass
